@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <ctype.h> // for tolower()
+
+int isPalindrome(char str[]) {
+    int length = stringLength(str);
+    int i;
+
+    for (i = 0; i < length / 2; i++) {
+        // Ignore spaces and case differences
+        if (tolower(str[i]) != tolower(str[length - i - 1]))
+            return 0;
+    }
+    return 1;
+}
+
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    if (isPalindrome(str))
+        printf("String is a palindrome.\n");
+    else
+        printf("String is not a palindrome.\n");
+    return 0;
+}
